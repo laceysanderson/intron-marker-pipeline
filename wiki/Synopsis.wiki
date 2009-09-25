@@ -24,6 +24,8 @@ Where:
   * `<_templateFASTA_>` and `<_queryFASTA_>` will be replaced with the path to your two input files. 
   * The options are optional but when present each option must be preceded by a - and of the form specified below. Available options are listed below.
 
+NOTE:
+If either the query or template sequence is in the current directory be sure to format it as `./<query>`.
 
 Example:
 `perl IMP.pl -a=g -NoMask -p ../Genomes/Medicago/Mt2.0_FrozenBACs.fas ../BFT_ESTdatasets/subsets/BFT.unigenes.subset`
