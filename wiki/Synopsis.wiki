@@ -14,6 +14,7 @@ This pipeline will allow the command-line submission of two FASTA datasets, one 
 ||7||Pipeline||Generation of combined output||
 ||8||Pipeline||Auto-curation or filtering of results||
 
+----
 ==Synopsis==
 ----
 
@@ -73,7 +74,7 @@ Each option must be preceded by a -. Either the short name or the Alias may be u
 ||Primer3 (4)||PMask=i|| ||i = 0(ignore) or 1(reject primers overlapping lowercase bases exactly at the 3' end)||This option allows for intelligent design of primers in sequence in which masked regions (for example repeat-masked regions) are lower-cased.||1||
 ||Primer3 (4)||PminGC=f|| || f=decimal||Minimum allowable percentage of Gs and Cs in any primer.||20.0%||
 
-
+----
 ==Further Description of Output==
 ----
 ===Query===
@@ -115,6 +116,7 @@ Each option must be preceded by a -. Either the short name or the Alias may be u
 ||Diagnostic||F/R Self-Any & F/R Self-End|| Two floats delinated by a forward slash which indicate the self-complimentary measure for a selected oligo (for more information see the Primer3 Documentation).||
 ||Diagnostic||F/R End Stability|| Two floats delinated by a forward slash which indicate the delta G of disruption of the five 3' bases of the primer (for more information see the Primer3 Documentation).||
 
+----
 ==Auto-curation==
 ----
 This option allows filtering of the results based on a number of criteria. These criteria are specified using the `-autocuration=s option`.
@@ -123,10 +125,10 @@ This option allows filtering of the results based on a number of criteria. These
   * P: only output the best primer pair (lowest primer pair penalty) per intron.
 Each of these options is independent of each other. The selected records will be compiled in the `<query>.curated.IMP` file and will be sorted by EST, Gene Model, and Intron.
 
-==References {anchor:Ref}==
+----
+==References==
 ----
   # Smit AFA, Hubley R & Green P, unpublished data. RepeatMasker version open 3.2.7 available from: http://repeatmasker.org. RepeatMasker incorporates the following programs: cross_match, tandem repeat finder and RepBase.
   # Usuka J, Zhu W, Brendel V (2000) Optimal spliced alignment of homologous cDNA to a genomic template. Bioinformatics 16(3): 203-211. Source code available at http://deepc2.psi.iastate.edu/cgi-bin/gs.cgi. 
   # Kent WJ (2002) BLAT -- The BLAST-Like Alignment Tool. Genome Research 4: 656-664.
   # Rozen S and Skaletsky HJ (2000) Primer3 on the WWW for general users and for biologist programmers. In: Krawetz S, Misener S (eds) Bioinformatics Methods and Protocols: Methods in Molecular Biology.  Humana Press, Totowa, NJ, pp 365-386. Source code available at http://sourceforge.net/projects/primer3/.
-  # Schuler GD (1997) Sequence mapping by electronic PCR. Genome Research 7(5): 541-550.
