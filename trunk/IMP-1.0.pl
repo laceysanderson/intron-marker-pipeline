@@ -2,13 +2,13 @@
 use Getopt::Long;
 require File::Spec;
 
-$RepeatMasker_Path = "/usr/local/share/applications/BinfoTools/RepeatMasker/RepeatMasker";
-$BLAT_Path = "/usr/local/share/applications/BinfoTools/BLAT/blat";
-$GeneSeqer_Path = "/usr/local/share/applications/BinfoTools/GeneSeqer/bin";
+$RepeatMasker_Path = "";
+$BLAT_Path = "";
+$GeneSeqer_Path = "";
 $GeneSeqer_Path_makearray = join("/", $GeneSeqer_Path, "MakeArray");
 $GeneSeqer_Path_main = join("/", $GeneSeqer_Path, "GeneSeqer");
-$Primer3_Path = "/usr/local/share/applications/BinfoTools/Primer3/src/primer3_core";
-$extract_fasta_Path = "/usr/local/share/applications/BinfoTools/extract_fasta.pl";
+$Primer3_Path = "";
+$extract_fasta_Path = "";
 
 ########################################################################################################################################
 
@@ -805,9 +805,9 @@ sub blat_parser ($$$$) {
         }
         
         close SEQ;
-        $out = `rm "$query.$blatOutput[9].fasta"`;
+        unlink("$query.$blatOutput[9].fasta") || print $!;
         close QUAL;
-        $out = `rm $query.$blatOutput[9].fasta.qual`; 
+        unlink ("$query.$blatOutput[9].fasta.qual") || print $!; 
 
       } else {
         $out = `perl $extract_fasta_Path -c $blatOutput[9] $queryPATH $query.$blatOutput[9].fasta`;
@@ -820,7 +820,7 @@ sub blat_parser ($$$$) {
         }
 
         close SEQ;
-        $out = `rm "$query.$blatOutput[9].fasta"`;
+        unlink ("$query.$blatOutput[9].fasta") || print $!;
       }##end of if else qual
       
       ##put in file for input to primer3
